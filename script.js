@@ -1,7 +1,7 @@
 (function () {
   // Single place to update live links, handles, and phone.
   // Leave any CONTACT_CONFIG value empty ("") to keep that slot hidden on the site.
-  const DONATE_URL = "https://donate.stripe.com/14A3co9eTf8X9H6f3i9k400";
+  const DONATE_URL = "https://donate.stripe.com/dRm6oA3Uz8Kz8D2f3i9k40o";
   const CONTACT_CONFIG = {
     instagram: "", // e.g. "https://instagram.com/sethmillergolf" or "@sethmillergolf"
     tiktok: "",    // e.g. "https://tiktok.com/@sethmillergolf" or "@sethmillergolf"
