@@ -6,7 +6,7 @@
   <title>Season Log — Seth Miller Golf</title>
   <meta name="description" content="Road to Nationals Season Log: GOLFTEC lessons, practice sessions, casual rounds, and 2027 VGA tournament results for Seth Miller." />
   <meta property="og:title" content="Season Log — Seth Miller Golf" />
-  <meta property="og:description" content="Every lesson, practice session, and 2027 VGA tournament round tracked openly from day one." />
+  <meta property="og:description" content="Lessons, practice, rounds, and 2027 VGA results — logged openly." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sethmillergolf.com/season-log.html" />
   <meta property="og:image" content="https://sethmillergolf.com/assets/img/hero-course-v7.jpg" />
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Archivo:wdth,wght@75..125,400..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=12" />
 </head>
 <body>
   <header class="site-header" data-header>
@@ -41,79 +41,39 @@
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero page-hero-log">
       <div class="wrap">
-        <p class="eyebrow">Road to Nationals Log</p>
+        <p class="eyebrow">Road to Nationals</p>
         <h1 class="display">Season <span>log.</span></h1>
-        <p id="progress-updated" class="ledger-updated">Season prep · Log starts October 2026</p>
+        <p id="progress-updated" class="ledger-updated">Season prep · October 2026</p>
       </div>
     </section>
 
-    <section class="section-ledger">
+    <section class="section-ledger section-season-log">
       <div class="wrap">
-        <p id="progress-note" class="ledger-note">Season prep is underway. Every GOLFTEC lesson, practice session, casual round, and event is logged here on the climb to VGA Nationals at Chambers Bay in 2027.</p>
-
-        <div class="log-kpis" aria-label="Season summary metrics">
+        <div class="log-kpis log-kpis-4" aria-label="Season summary">
           <div class="log-kpi log-kpi-teal"><span>Lessons</span><strong id="stat-lessons">0</strong></div>
           <div class="log-kpi log-kpi-teal"><span>Practice hours</span><strong id="stat-hours">0 hrs</strong></div>
-          <div class="log-kpi"><span>Total rounds</span><strong id="stat-rounds">0</strong></div>
-          <div class="log-kpi"><span>Tournament rounds</span><strong id="stat-tournaments">0</strong></div>
+          <div class="log-kpi"><span>Rounds played</span><strong id="stat-rounds">0</strong></div>
           <div class="log-kpi"><span>Best score</span><strong id="stat-best">—</strong></div>
-          <div class="log-kpi"><span>Average score</span><strong id="stat-avg">—</strong></div>
         </div>
 
-        <div class="chart-panel">
+        <div class="chart-panel chart-panel-sm">
           <div class="chart-head">
-            <h2>Score &amp; differential trend</h2>
-            <div class="chart-legend" aria-hidden="true">
-              <span class="legend-item"><span class="legend-dot legend-score"></span>Gross score</span>
-              <span class="legend-item"><span class="legend-dot legend-diff"></span>Handicap diff</span>
+            <h2>Scores</h2>
+            <div class="chart-legend" id="chart-legend" hidden>
+              <span class="legend-item"><span class="legend-dot legend-score"></span>Score</span>
+              <span class="legend-item"><span class="legend-dot legend-diff"></span>Diff</span>
             </div>
           </div>
           <div id="trend-chart"></div>
         </div>
 
-        <div class="ledger-block">
-          <div class="log-section-head">
-            <h2>Activity feed</h2>
-            <div class="log-filters" role="group" aria-label="Filter log entries by type">
-              <button type="button" class="filter-btn is-active" data-log-filter="all" aria-pressed="true">All <span class="filter-count" data-filter-count="all">0</span></button>
-              <button type="button" class="filter-btn" data-log-filter="lesson" aria-pressed="false">Lessons <span class="filter-count" data-filter-count="lesson">0</span></button>
-              <button type="button" class="filter-btn" data-log-filter="practice" aria-pressed="false">Practice <span class="filter-count" data-filter-count="practice">0</span></button>
-              <button type="button" class="filter-btn" data-log-filter="round" aria-pressed="false">Rounds <span class="filter-count" data-filter-count="round">0</span></button>
-              <button type="button" class="filter-btn" data-log-filter="tournament" aria-pressed="false">Tournaments <span class="filter-count" data-filter-count="tournament">0</span></button>
-            </div>
-          </div>
-          <div id="activity-feed" class="log-feed"></div>
+        <div class="log-block">
+          <h2>Rounds &amp; events</h2>
+          <div id="rounds-events" class="rounds-events"></div>
         </div>
 
-        <div class="ledger-block">
-          <h2>Tournament results</h2>
-          <div id="tournament-empty" class="log-empty-card" hidden>
-            <p class="log-empty-eyebrow">2027 VGA Arizona Tour</p>
-            <p class="log-empty-title">No tournament rounds yet.</p>
-            <p class="log-empty-copy">Every 2027 VGA event score, course rating/slope, differential, and result will be posted here after each round, good or bad.</p>
-          </div>
-          <div class="ledger-table-wrap" id="tournament-wrap">
-            <table class="ledger-table" id="tournament-table">
-              <thead>
-                <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Course / Event</th>
-                  <th scope="col">Tees</th>
-                  <th scope="col" class="num">Score</th>
-                  <th scope="col" class="num">Par</th>
-                  <th scope="col" class="num">Rating / Slope</th>
-                  <th scope="col" class="num">Diff</th>
-                  <th scope="col">Notes</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-
-        <p class="ledger-fine">All scores, lessons, and VGA tournament rounds are logged straight from the card and coach notes — no inflated stats or hidden rounds.</p>
         <div class="ledger-cta">
           <a class="btn btn-primary btn-lg" href="#" data-donate>Back my season <span class="btn-arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-dark btn-lg" href="ledger.html">Public ledger</a>
@@ -154,6 +114,6 @@
   </div>
 
   <script src="script.js?v=8"></script>
-  <script src="progress.js?v=11"></script>
+  <script src="progress.js?v=12"></script>
 </body>
 </html>

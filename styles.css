@@ -678,18 +678,108 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
 .log-kpis {
   display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 48px;
 }
+.log-kpis-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
 .log-kpi {
   background: var(--g800); color: var(--cream); padding: 20px 18px; border-top: 4px solid var(--gold);
 }
+.log-kpis-4 .log-kpi { padding: 28px 24px 24px; }
 .log-kpi-teal { border-top-color: var(--turquoise); }
 .log-kpi span {
   display: block; font-family: var(--display); font-weight: 800; letter-spacing: .2em;
   text-transform: uppercase; font-size: 11px; color: var(--gold); margin-bottom: 6px;
 }
+.log-kpis-4 .log-kpi span { font-size: 12px; letter-spacing: .18em; margin-bottom: 10px; }
 .log-kpi-teal span { color: #5BB5AE; }
 .log-kpi strong {
   font-family: var(--display); font-stretch: 100%; font-weight: 900;
   font-size: clamp(32px, 3.8vw, 48px); line-height: 1;
+}
+.log-kpis-4 .log-kpi strong { font-size: clamp(44px, 6vw, 72px); }
+
+.page-hero-log { padding: 150px 0 64px; }
+.section-season-log { padding: clamp(48px, 7vw, 88px) 0 96px; }
+.log-block { margin: 56px 0 0; }
+.log-block h2 {
+  margin: 0 0 20px;
+  font-family: var(--display); font-stretch: 100%; font-weight: 900;
+  text-transform: uppercase; font-size: clamp(28px, 3.2vw, 40px);
+  color: var(--g800); line-height: 1;
+}
+.rounds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--body);
+  font-size: 16px;
+  color: var(--g800);
+}
+.rounds-table th {
+  text-align: left;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #6A5A4E;
+  padding: 0 16px 10px 0;
+  border-bottom: 1px solid rgba(42, 26, 20, 0.28);
+  white-space: nowrap;
+}
+.rounds-table th:last-child,
+.rounds-table td:last-child { text-align: right; padding-right: 0; }
+.rounds-table td {
+  padding: 16px 16px 16px 0;
+  border-bottom: 1px solid rgba(42, 26, 20, 0.12);
+  vertical-align: baseline;
+}
+.re-date {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #4A3A2E;
+  width: 1%;
+  padding-right: 28px;
+}
+.re-course { font-weight: 500; }
+.re-course .log-type { margin-right: 10px; vertical-align: 1px; }
+.re-result {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.log-quiet { margin: 0; color: #5A4A3E; font-size: 15px; }
+.chart-panel-sm { padding: 20px 22px 14px; margin-bottom: 8px; }
+.chart-panel-sm .chart-head { margin-bottom: 8px; }
+.chart-panel-sm .chart-head h2 { font-size: clamp(20px, 2.4vw, 26px); }
+.chart-panel-sm .chart-empty { padding: 18px 0 12px; }
+.chart-panel-sm .chart-empty-copy { margin: 0; font-size: 14px; }
+.section-season-log .ledger-cta { margin-top: 64px; }
+
+@media (max-width: 799px) {
+  .log-kpis-4 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .log-kpis-4 .log-kpi { padding: 22px 18px 18px; }
+  .log-kpis-4 .log-kpi strong { font-size: clamp(40px, 12vw, 56px); }
+  .rounds-table, .rounds-table tbody, .rounds-table tr, .rounds-table td, .rounds-table th { display: block; width: 100%; }
+  .rounds-table thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+  .rounds-table tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "date result" "course course";
+    gap: 2px 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(42, 26, 20, 0.14);
+  }
+  .rounds-table td { border: 0; padding: 0; width: auto; text-align: left; }
+  .rounds-table td:last-child { text-align: right; }
+  .re-date { grid-area: date; padding-right: 0; font-size: 14px; }
+  .re-course { grid-area: course; }
+  .re-result { grid-area: result; font-size: 22px; }
 }
 
 .chart-panel {
@@ -702,6 +792,7 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
   text-transform: uppercase; font-size: clamp(26px, 3vw, 36px); line-height: 1; color: var(--cream);
 }
 .chart-legend { display: flex; gap: 18px; font-size: 13px; color: var(--muted); }
+.chart-legend[hidden] { display: none; }
 .legend-item { display: inline-flex; align-items: center; gap: 7px; }
 .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 .legend-score { background: var(--gold); }
@@ -836,13 +927,13 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
 
 @media (max-width: 959px) {
   .pkg-grid, .mockup-grid { grid-template-columns: 1fr; }
-  .log-kpis { grid-template-columns: repeat(3, 1fr); }
+  .log-kpis:not(.log-kpis-4) { grid-template-columns: repeat(3, 1fr); }
   .psnap-stats { grid-template-columns: repeat(2, auto); width: 100%; }
   .season-log-snap { flex-direction: column; align-items: flex-start; }
   .season-log-snap .btn { width: 100%; }
 }
 @media (max-width: 600px) {
-  .log-kpis { grid-template-columns: repeat(2, 1fr); }
+  .log-kpis:not(.log-kpis-4) { grid-template-columns: repeat(2, 1fr); }
   .ridge-saguaro { width: 48px; height: 70px; bottom: 6px; right: 18px; }
   .pkg-actions .btn { width: 100%; }
 }
