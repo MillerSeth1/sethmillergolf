@@ -508,7 +508,7 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
   .section-season::after, .section-sponsors::after { right: 16px; bottom: 16px; }
 }
 
-/* ---------- v8 additions: Saguaro ridge, Packages, Shop, Season Log, Social/Phone ---------- */
+/* ---------- v8 additions: Saguaro ridge, Packages, Season Log, Social/Phone ---------- */
 .inline-link { color: var(--g800); font-weight: 600; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
 .inline-link:hover { color: var(--terracotta); }
 .inline-link-light { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
@@ -638,7 +638,7 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
 .pkg-sep { margin: 0; font-size: 14px; color: var(--muted); }
 .pkg-fine { margin: 18px 0 0; font-size: 13px; color: rgba(246, 237, 224, 0.56); max-width: 68ch; }
 
-/* Sponsors Wall on light --cream (alternates cleanly between dark #packages and dark #shop) */
+/* Sponsors Wall on light --cream (alternates cleanly between dark #packages and dark #contact) */
 .section-sponsors { background: var(--cream); color: var(--ink); overflow: hidden; isolation: isolate; }
 .section-sponsors::before {
   opacity: .16;
@@ -653,36 +653,6 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
   background: rgba(235, 220, 200, 0.35);
 }
 .section-sponsors .sponsor-slot:hover { background: var(--cream-2); color: var(--g900); border-color: var(--gold); }
-
-/* Merch Shop */
-.section-shop { background: var(--g900); color: var(--cream); }
-.shop-lead { margin: 20px 0 0; max-width: 60ch; color: var(--muted); font-size: 18px; line-height: 1.65; }
-.shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
-.shop-card {
-  background: var(--g800);
-  border: 1px solid rgba(246, 237, 224, 0.14);
-  padding: 16px 16px 22px;
-  display: flex; flex-direction: column; gap: 14px;
-  transition: border-color .3s, transform .3s var(--ease);
-}
-.shop-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-.shop-thumb {
-  position: relative; display: block; width: 100%; padding: 0; border: 0; background: var(--cream);
-  cursor: zoom-in; overflow: hidden; border-radius: 4px;
-}
-.shop-thumb img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .4s var(--ease); }
-.shop-thumb:hover img { transform: scale(1.02); }
-.shop-meta { flex: 1; }
-.shop-title { margin: 0 0 6px; font-family: var(--display); font-weight: 900; font-size: 24px; letter-spacing: .04em; text-transform: uppercase; color: var(--cream); line-height: 1; }
-.shop-desc { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.5; }
-.btn-coming-soon {
-  width: 100%;
-  background: rgba(246, 237, 224, 0.08);
-  color: rgba(246, 237, 224, 0.72);
-  border: 1px solid rgba(246, 237, 224, 0.22);
-  cursor: not-allowed;
-}
-.btn-coming-soon:hover { transform: none; }
 
 /* Contact hidden social & phone slots */
 .contact-extras { margin-top: 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
@@ -865,7 +835,7 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
 .log-empty-copy { margin: 0; font-size: 16px; color: #4A3A2E; max-width: 62ch; }
 
 @media (max-width: 959px) {
-  .pkg-grid, .mockup-grid, .shop-grid { grid-template-columns: 1fr; }
+  .pkg-grid, .mockup-grid { grid-template-columns: 1fr; }
   .log-kpis { grid-template-columns: repeat(3, 1fr); }
   .psnap-stats { grid-template-columns: repeat(2, auto); width: 100%; }
   .season-log-snap { flex-direction: column; align-items: flex-start; }
