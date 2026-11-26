@@ -1004,7 +1004,7 @@ body.nav-open .site-header { backdrop-filter: none; -webkit-backdrop-filter: non
   letter-spacing: .22em; text-transform: uppercase; color: var(--khaki);
 }
 .gift-callout-kicker a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
-.gift-callout-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.gift-callout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .gift-callout figure { margin: 0; min-width: 0; background: var(--g800); border: 1px solid rgba(212,137,74,.35); border-radius: 12px; overflow: hidden; }
 .gift-callout img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; background: #fff; }
 .gift-callout figcaption { padding: 10px 12px 12px; font-size: 13px; line-height: 1.4; color: var(--muted); }
