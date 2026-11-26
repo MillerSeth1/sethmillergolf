@@ -290,9 +290,6 @@
           metrics.push(`<span>Diff: <strong>${diff.toFixed(1)}</strong></span>`);
         if (hrs !== null)
           metrics.push(`<span>Time: <strong>${Number(hrs.toFixed(1))} hrs</strong></span>`);
-        if (e.coach)
-          metrics.push(`<span>Coach: <strong>${esc(e.coach)}</strong></span>`);
-
         return `
           <article class="log-entry">
             <div class="log-entry-head">
@@ -359,7 +356,7 @@
     });
   });
 
-  fetch("progress.json?v=9")
+  fetch("progress.json?v=10")
     .then((r) => {
       if (!r.ok) throw new Error("Could not load Season Log");
       return r.json();

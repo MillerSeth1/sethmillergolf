@@ -168,7 +168,7 @@
   // Season Log snapshot on the home page
   const progSnap = document.querySelector("[data-progress-snap]");
   if (progSnap) {
-    fetch("progress.json?v=9")
+    fetch("progress.json?v=10")
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((d) => {
         const entries = Array.isArray(d.entries) ? d.entries : [];
