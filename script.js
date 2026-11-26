@@ -216,4 +216,35 @@
       if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
     });
   }
+
+
+  // Supporters wall (default Anonymous; names only when a donor opted in)
+  const wall = document.querySelector("[data-supporters-wall]");
+  if (wall) {
+    fetch("supporters.json?v=1")
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((data) => {
+        const list = Array.isArray(data.supporters) ? data.supporters : [];
+        const visible = list.filter((s) => s && s.showName && String(s.name || "").trim());
+        if (!visible.length) {
+          wall.innerHTML = "<p class=\"supporters-empty\">No public names yet — and that's by design. Every gift still counts, and the default is Anonymous.</p>";
+          return;
+        }
+        wall.innerHTML =
+          "<ul class=\"supporters-list\">" +
+          visible
+            .map((s) => {
+              const name = String(s.name).trim()
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+              return "<li>" + name + "</li>";
+            })
+            .join("") +
+          "</ul>";
+      })
+      .catch(() => {
+        wall.innerHTML = "<p class=\"supporters-empty\">The supporter wall could not be loaded right now.</p>";
+      });
+  }
 })();
