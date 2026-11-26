@@ -22,7 +22,7 @@ jobs:
       - name: Stage static site
         run: |
           mkdir -p _site
-          cp index.html ledger.html ledger.json ledger.js season-log.html progress.json progress.js styles.css script.js CNAME robots.txt .nojekyll _site/
+          cp index.html ledger.html ledger.json ledger.js season-log.html progress.json progress.js styles.css script.js supporters.json CNAME robots.txt .nojekyll _site/
           cp -r assets _site/
       - uses: actions/upload-pages-artifact@v3
         with:
