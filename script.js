@@ -1,8 +1,55 @@
 (function () {
-  // Single place to change the donation link.
+  // Single place to update live links, handles, and phone.
+  // Leave any CONTACT_CONFIG value empty ("") to keep that slot hidden on the site.
   const DONATE_URL = "https://donate.stripe.com/14A3co9eTf8X9H6f3i9k400";
+  const CONTACT_CONFIG = {
+    instagram: "", // e.g. "https://instagram.com/sethmillergolf" or "@sethmillergolf"
+    tiktok: "",    // e.g. "https://tiktok.com/@sethmillergolf" or "@sethmillergolf"
+    phone: "",     // e.g. "(520) 555-0199"
+  };
+
   document.querySelectorAll("[data-donate]").forEach((a) => {
     a.href = DONATE_URL;
+  });
+
+  // Social links & phone slots (hidden until handles / number are filled in CONTACT_CONFIG)
+  function normalizeSocialUrl(network, val) {
+    const v = String(val || "").trim();
+    if (!v) return "";
+    if (/^https?:\/\//i.test(v)) return v;
+    const handle = v.replace(/^@/, "");
+    if (network === "instagram") return "https://instagram.com/" + handle;
+    if (network === "tiktok") return "https://www.tiktok.com/@" + handle;
+    return v;
+  }
+
+  let anySocialVisible = false;
+  ["instagram", "tiktok"].forEach((net) => {
+    const url = normalizeSocialUrl(net, CONTACT_CONFIG[net]);
+    document.querySelectorAll(`[data-social="${net}"]`).forEach((el) => {
+      if (url) {
+        el.href = url;
+        el.hidden = false;
+        anySocialVisible = true;
+      } else {
+        el.hidden = true;
+      }
+    });
+  });
+  document.querySelectorAll("[data-social-row]").forEach((row) => {
+    row.hidden = !anySocialVisible;
+  });
+
+  const phoneVal = String(CONTACT_CONFIG.phone || "").trim();
+  const phoneDigits = phoneVal.replace(/[^\d+]/g, "");
+  document.querySelectorAll("[data-contact-phone]").forEach((el) => {
+    if (phoneVal && phoneDigits) {
+      el.textContent = phoneVal;
+      el.href = "tel:" + phoneDigits;
+      el.hidden = false;
+    } else {
+      el.hidden = true;
+    }
   });
 
   // Thank-you banner after Stripe redirects back with ?thanks=1
@@ -67,7 +114,6 @@
       },
       { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
     );
-    // Stagger siblings slightly
     items.forEach((el) => {
       const sibs = el.parentElement ? Array.from(el.parentElement.children).filter((c) => c.classList.contains("reveal")) : [];
       const i = sibs.indexOf(el);
@@ -104,7 +150,7 @@
   const snap = document.querySelector("[data-ledger-snap]");
   if (snap) {
     const money = (n) => Number(n).toLocaleString("en-US", { style: "currency", currency: "USD" });
-    fetch("ledger.json?v=7")
+    fetch("ledger.json?v=8")
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((d) => {
         const sum = (rows) => (rows || []).reduce((s, r) => s + Number(r.amount || 0), 0);
@@ -115,6 +161,29 @@
           snap.querySelector('[data-snap="updated"]').textContent =
             "Last updated " + new Date(y, m - 1, day).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
         }
+      })
+      .catch(() => {});
+  }
+
+  // Season Log snapshot on the home page
+  const progSnap = document.querySelector("[data-progress-snap]");
+  if (progSnap) {
+    fetch("progress.json?v=8")
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => {
+        const entries = Array.isArray(d.entries) ? d.entries : [];
+        const lessons = entries.filter((e) => e.type === "lesson").length;
+        const hrs = entries.reduce((s, e) => (e.type === "practice" || e.type === "lesson" ? s + Number(e.hours || 0) : s), 0);
+        const rounds = entries.filter((e) => e.type === "round" || e.type === "tournament").length;
+        const tourneys = entries.filter((e) => e.type === "tournament").length;
+        const setP = (k, v) => {
+          const el = progSnap.querySelector(`[data-psnap="${k}"]`);
+          if (el) el.textContent = v;
+        };
+        setP("lessons", String(lessons));
+        setP("hours", hrs > 0 ? `${Number(hrs.toFixed(1))} hrs` : "0 hrs");
+        setP("rounds", String(rounds));
+        setP("tournaments", String(tourneys));
       })
       .catch(() => {});
   }

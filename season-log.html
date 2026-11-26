@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Season Log — Seth Miller Golf</title>
+  <meta name="description" content="Road to Nationals Season Log: GOLFTEC lessons, practice sessions, casual rounds, and 2027 VGA tournament results for Seth Miller." />
+  <meta property="og:title" content="Season Log — Seth Miller Golf" />
+  <meta property="og:description" content="Every lesson, practice session, and 2027 VGA tournament round tracked openly from day one." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sethmillergolf.com/season-log.html" />
+  <meta property="og:image" content="https://sethmillergolf.com/assets/img/hero-course-v7.jpg" />
+  <meta name="theme-color" content="#241610" />
+  <link rel="icon" type="image/png" href="assets/brand/favicon-v3.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon-v3.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Archivo:wdth,wght@75..125,400..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=8" />
+</head>
+<body>
+  <header class="site-header" data-header>
+    <div class="wrap header-inner">
+      <a class="brand-link" href="index.html" aria-label="Seth Miller Golf home">
+        <img class="brand-mono" src="assets/brand/sm-mark-sand-v7.png" alt="" width="1053" height="428" />
+      </a>
+      <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#about">About</a>
+        <a href="index.html#season">2027</a>
+        <a href="season-log.html" aria-current="page">Season Log</a>
+        <a href="index.html#packages">Packages</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#support">Support</a>
+        <a href="ledger.html">Ledger</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="nav-donate" href="#" data-donate>Donate</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Road to Nationals Log</p>
+        <h1 class="display">Season <span>log.</span></h1>
+        <p id="progress-updated" class="ledger-updated">Season starts 2027 · Ready for day-one logging</p>
+      </div>
+    </section>
+
+    <section class="section-ledger">
+      <div class="wrap">
+        <p id="progress-note" class="ledger-note">Every GOLFTEC lesson, practice session, casual round, and 2027 VGA tournament round will be logged here as the season unfolds.</p>
+
+        <div class="log-kpis" aria-label="Season summary metrics">
+          <div class="log-kpi log-kpi-teal"><span>Lessons</span><strong id="stat-lessons">0</strong></div>
+          <div class="log-kpi log-kpi-teal"><span>Practice hours</span><strong id="stat-hours">0 hrs</strong></div>
+          <div class="log-kpi"><span>Total rounds</span><strong id="stat-rounds">0</strong></div>
+          <div class="log-kpi"><span>Tournament rounds</span><strong id="stat-tournaments">0</strong></div>
+          <div class="log-kpi"><span>Best score</span><strong id="stat-best">—</strong></div>
+          <div class="log-kpi"><span>Average score</span><strong id="stat-avg">—</strong></div>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-head">
+            <h2>Score &amp; differential trend</h2>
+            <div class="chart-legend" aria-hidden="true">
+              <span class="legend-item"><span class="legend-dot legend-score"></span>Gross score</span>
+              <span class="legend-item"><span class="legend-dot legend-diff"></span>Handicap diff</span>
+            </div>
+          </div>
+          <div id="trend-chart"></div>
+        </div>
+
+        <div class="ledger-block">
+          <div class="log-section-head">
+            <h2>Activity feed</h2>
+            <div class="log-filters" role="group" aria-label="Filter log entries by type">
+              <button type="button" class="filter-btn is-active" data-log-filter="all" aria-pressed="true">All <span class="filter-count" data-filter-count="all">0</span></button>
+              <button type="button" class="filter-btn" data-log-filter="lesson" aria-pressed="false">Lessons <span class="filter-count" data-filter-count="lesson">0</span></button>
+              <button type="button" class="filter-btn" data-log-filter="practice" aria-pressed="false">Practice <span class="filter-count" data-filter-count="practice">0</span></button>
+              <button type="button" class="filter-btn" data-log-filter="round" aria-pressed="false">Rounds <span class="filter-count" data-filter-count="round">0</span></button>
+              <button type="button" class="filter-btn" data-log-filter="tournament" aria-pressed="false">Tournaments <span class="filter-count" data-filter-count="tournament">0</span></button>
+            </div>
+          </div>
+          <div id="activity-feed" class="log-feed"></div>
+        </div>
+
+        <div class="ledger-block">
+          <h2>Tournament results</h2>
+          <div id="tournament-empty" class="log-empty-card" hidden>
+            <p class="log-empty-eyebrow">2027 VGA Arizona Tour</p>
+            <p class="log-empty-title">No tournament rounds yet.</p>
+            <p class="log-empty-copy">Every 2027 VGA event score, course rating/slope, differential, and result will be posted here after each round, good or bad.</p>
+          </div>
+          <div class="ledger-table-wrap" id="tournament-wrap">
+            <table class="ledger-table" id="tournament-table">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Course / Event</th>
+                  <th scope="col">Tees</th>
+                  <th scope="col" class="num">Score</th>
+                  <th scope="col" class="num">Par</th>
+                  <th scope="col" class="num">Rating / Slope</th>
+                  <th scope="col" class="num">Diff</th>
+                  <th scope="col">Notes</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <p class="ledger-fine">All scores, lessons, and VGA tournament rounds are logged straight from the card and coach notes — no inflated stats or hidden rounds.</p>
+        <div class="ledger-cta">
+          <a class="btn btn-primary btn-lg" href="#" data-donate>Back my season <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-dark btn-lg" href="ledger.html">Public ledger</a>
+          <a class="btn btn-dark btn-lg" href="index.html#packages">Sponsor packages</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <button type="button" class="enlarge-trigger footer-lockup" data-enlarge="assets/brand/stack-underline-olive-bg-v3.png" data-caption="Seth Miller — stacked script lockup" aria-label="Enlarge Seth Miller logo">
+        <img src="assets/brand/seth-miller-lockup-sand-v7.png" alt="Seth Miller" width="1607" height="789" />
+      </button>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html#about">About</a>
+        <a href="index.html#season">2027</a>
+        <a href="season-log.html">Season Log</a>
+        <a href="index.html#packages">Packages</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#support">Support</a>
+        <a href="ledger.html">Ledger</a>
+        <a href="index.html#contact">Contact</a>
+        <a data-social="instagram" href="#" target="_blank" rel="noopener noreferrer" hidden>Instagram</a>
+        <a data-social="tiktok" href="#" target="_blank" rel="noopener noreferrer" hidden>TikTok</a>
+      </nav>
+      <p class="footer-meta">&copy; 2026 Seth Miller &middot; sethmillergolf.com</p>
+      <p class="footer-credit">Photography: JaxonLabs and Nate Hovee (Pexels); desert golf by Bernard Gagnon (Wikimedia, CC-BY-SA&nbsp;3.0).</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <div class="lightbox-backdrop" data-close></div>
+    <div class="lightbox-dialog">
+      <button type="button" class="lightbox-close" data-close aria-label="Close enlarged image">&times;</button>
+      <img id="lightbox-img" alt="" />
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js?v=8"></script>
+  <script src="progress.js?v=8"></script>
+</body>
+</html>
