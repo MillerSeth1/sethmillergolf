@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Public ledger — Seth Miller</title>
+  <meta name="description" content="Public ledger of money in and money out for Seth Miller’s 2027 VGA season." />
+  <link rel="icon" type="image/png" href="assets/brand/favicon-v3.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon-v3.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand-link" href="index.html" aria-label="Seth Miller home">
+        <img class="brand-mono" src="assets/brand/sm-mark-khaki-v3.png" alt="" width="1053" height="428" />
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
+
+      <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#about">About</a>
+        <a href="index.html#season">2027</a>
+        <a href="index.html#support">Support</a>
+        <a href="index.html#money">Accountability</a>
+        <a href="ledger.html" aria-current="page">Ledger</a>
+        <a href="index.html#sponsors">Sponsors</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-ledger">
+      <div class="wrap">
+        <div class="ledger-head">
+          <p class="kicker">Accountability</p>
+          <h2>Public ledger</h2>
+          <p id="ledger-updated" class="ledger-updated"></p>
+        </div>
+
+        <p id="ledger-note" class="ledger-note"></p>
+
+        <div class="ledger-block">
+          <h3>Money in</h3>
+          <div class="ledger-table-wrap">
+            <table class="ledger-table" id="money-in">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Source</th>
+                  <th scope="col" class="num">Amount</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2">Total in</td>
+                  <td class="num"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div class="ledger-block">
+          <h3>Money out</h3>
+          <div class="ledger-table-wrap">
+            <table class="ledger-table" id="money-out">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Item</th>
+                  <th scope="col" class="num">Amount</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2">Total out</td>
+                  <td class="num"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <p class="fine-print" style="margin-left:auto;margin-right:auto;text-align:center;color:#3A3A32;">
+          Sources are listed as Anonymous unless a sponsor agrees to be named. Contributions are personal gifts, not tax-deductible charitable donations.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="footer-mark" href="index.html" aria-label="Back to home">
+        <img src="assets/brand/sm-mark-khaki-v3.png" alt="SM monogram" width="1053" height="428" />
+      </a>
+      <p>sethmillergolf.com</p>
+    </div>
+  </footer>
+
+  <script src="script.js?v=4"></script>
+  <script src="ledger.js?v=4"></script>
+</body>
+</html>

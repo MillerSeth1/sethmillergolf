@@ -1,0 +1,19 @@
+{
+  "lastUpdated": "2026-11-25",
+  "note": "Miller Avionics is covering startup costs until donations come in.",
+  "moneyIn": [
+    {
+      "date": "2026-11-25",
+      "source": "Copper Mountain Air",
+      "type": "in-kind",
+      "amount": 11.81
+    }
+  ],
+  "moneyOut": [
+    {
+      "date": "2026-11-25",
+      "item": "sethmillergolf.com domain (Porkbun)",
+      "amount": 11.81
+    }
+  ]
+}

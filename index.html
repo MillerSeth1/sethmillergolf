@@ -15,12 +15,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body id="top">
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand-link" href="#top" aria-label="Seth Miller home">
+      <a class="brand-link" href="index.html" aria-label="Seth Miller home">
         <img class="brand-mono" src="assets/brand/sm-mark-khaki-v3.png" alt="" width="1053" height="428" />
       </a>
 
@@ -29,11 +29,13 @@
       </button>
 
       <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#season">2027</a>
-        <a href="#support">Support</a>
-        <a href="#sponsors">Sponsors</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#season">2027</a>
+        <a href="index.html#support">Support</a>
+        <a href="index.html#money">Accountability</a>
+        <a href="ledger.html">Ledger</a>
+        <a href="index.html#sponsors">Sponsors</a>
+        <a href="index.html#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -61,24 +63,24 @@
       <div class="wrap">
         <p class="kicker">2027 Season</p>
         <h2>The work ahead.</h2>
-        <div class="goals">
-          <article class="goal">
-            <p class="goal-num">12+</p>
-            <h3>Events</h3>
-          </article>
+        <p class="goal-lead">The goal is VGA Nationals at Chambers Bay.</p>
+        <div class="goal-path">
           <article class="goal">
             <p class="goal-num">State</p>
             <h3>Championship</h3>
           </article>
+          <span class="path-arrow" aria-hidden="true">→</span>
           <article class="goal">
             <p class="goal-num">West</p>
             <h3>Regional</h3>
           </article>
-          <article class="goal">
-            <p class="goal-num">Army</p>
-            <h3>Armed Forces Cup</h3>
+          <span class="path-arrow" aria-hidden="true">→</span>
+          <article class="goal goal-featured">
+            <p class="goal-num">Nationals</p>
+            <h3>Chambers Bay</h3>
           </article>
         </div>
+        <p class="goal-plus">Plus the Armed Forces Cup. It starts with 12 or more regular-season events.</p>
       </div>
     </section>
 
@@ -105,6 +107,23 @@
           <a class="btn btn-ghost" href="mailto:seth@sethmillergolf.com?subject=2027%20VGA%20Season%20Support">Email Seth</a>
         </div>
         <p class="fine-print">Contributions are personal gifts to Seth Miller, not tax-deductible charitable donations. Seth is an individual, not a 501(c)(3), and no charitable receipt can be issued.</p>
+      </div>
+    </section>
+
+    <section id="money" class="section section-money">
+      <div class="wrap narrow">
+        <p class="kicker kicker-on-dark">Accountability</p>
+        <h2>Where your money goes.</h2>
+        <p class="money-lead">Support goes to entry fees, travel, gear, and training.</p>
+        <ul class="money-points">
+          <li>This is a personal gift, not a charity, and it is not tax-deductible.</li>
+          <li>Every dollar is logged on a public ledger.</li>
+          <li>Results will be posted after every event, good or bad.</li>
+          <li>Receipts are kept and available to any supporter on request.</li>
+          <li>The plan is that leftover funds roll into the 2028 season.</li>
+        </ul>
+        <a class="btn btn-hero money-btn" href="ledger.html">See the public ledger</a>
+        <p class="fine-print money-note">Miller Avionics is covering startup costs until donations come in.</p>
       </div>
     </section>
 
@@ -148,6 +167,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
