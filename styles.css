@@ -956,6 +956,7 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
   line-height: 1; color: var(--cream);
 }
 .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.how-grid-3 { grid-template-columns: repeat(3, 1fr); }
 .how-card {
   padding: 24px 24px 22px;
   background: rgba(22, 14, 12, 0.35);
@@ -989,5 +990,5 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
 .supporter-anon { font-style: italic; font-weight: 500; color: #5A4A3E; }
 
 @media (max-width: 799px) {
-  .how-grid { grid-template-columns: 1fr; }
+  .how-grid, .how-grid-3 { grid-template-columns: 1fr; }
 }
