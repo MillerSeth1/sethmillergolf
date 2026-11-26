@@ -261,48 +261,56 @@
       return;
     }
 
-    feed.innerHTML = filtered
+    const rows = filtered
       .map((e) => {
         const typeKey = e.type in TYPE_LABELS ? e.type : "practice";
-        const typeLabel = TYPE_LABELS[typeKey];
+        const typeLabel = typeKey === "round" ? "Round" : TYPE_LABELS[typeKey];
         const score = numOrNull(e.score);
         const par = numOrNull(e.par);
-        const diff = numOrNull(e.differential);
         const hrs = numOrNull(e.hours);
-
-        const metrics = [];
+        const statParts = [];
         if (score !== null) {
-          const toPar =
-            par !== null
-              ? (() => {
-                  const d = score - par;
-                  return d === 0 ? "E" : d > 0 ? `+${d}` : `${d}`;
-                })()
-              : null;
-          metrics.push(
-            `<span><strong>${esc(score)}</strong>${toPar ? ` (${esc(toPar)})` : ""}</span>`
-          );
+          let label = String(score);
+          if (par !== null) {
+            const d = score - par;
+            label += d === 0 ? " (E)" : d > 0 ? ` (+${d})` : ` (${d})`;
+          }
+          statParts.push(label);
         }
-        if (e.tees) metrics.push(`<span>Tees: <strong>${esc(e.tees)}</strong></span>`);
-        if (ratingSlopeText(e) !== "—")
-          metrics.push(`<span>R/S: <strong>${esc(ratingSlopeText(e))}</strong></span>`);
-        if (diff !== null)
-          metrics.push(`<span>Diff: <strong>${diff.toFixed(1)}</strong></span>`);
-        if (hrs !== null)
-          metrics.push(`<span>Time: <strong>${Number(hrs.toFixed(1))} hrs</strong></span>`);
+        if (hrs !== null) statParts.push(`${Number(hrs.toFixed(1))} hrs`);
+        const stat = statParts.length ? statParts.join(" · ") : "—";
+        const where = e.course || (typeKey === "lesson" ? "GOLFTEC Tucson" : "—");
         return `
-          <article class="log-entry">
-            <div class="log-entry-head">
-              <span class="log-type log-type-${esc(typeKey)}">${esc(typeLabel)}</span>
-              <time class="log-date">${esc(dateLabel(e.date))}</time>
-            </div>
-            <h3 class="log-course">${esc(e.course || (typeKey === "lesson" ? "GOLFTEC Lesson" : "Practice Session"))}</h3>
-            ${metrics.length ? `<div class="log-metrics">${metrics.join("")}</div>` : ""}
-            ${e.notes ? `<p class="log-notes">${esc(e.notes)}</p>` : ""}
-          </article>
+          <tr>
+            <td class="log-col-date"><time datetime="${esc(e.date)}">${esc(dateLabel(e.date))}</time></td>
+            <td class="log-col-type"><span class="log-type log-type-${esc(typeKey)}">${esc(typeLabel)}</span></td>
+            <td class="log-col-where">${esc(where)}</td>
+            <td class="log-col-stat">${esc(stat)}</td>
+            <td class="log-col-note">${esc(e.notes || "—")}</td>
+          </tr>
         `;
       })
       .join("");
+
+    feed.innerHTML = `
+      <div class="log-list-wrap">
+        <table class="log-list">
+          <caption class="visually-hidden">Season log activity</caption>
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Type</th>
+              <th scope="col">Where</th>
+              <th scope="col">Score / Hours</th>
+              <th scope="col">Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows}
+          </tbody>
+        </table>
+      </div>
+    `;
   }
 
   function renderTournaments(entries) {
