@@ -1,4 +1,21 @@
 (function () {
+  // Single place to change the donation link.
+  const DONATE_URL = "https://donate.stripe.com/14A3co9eTf8X9H6f3i9k400";
+  document.querySelectorAll("[data-donate]").forEach((a) => {
+    a.href = DONATE_URL;
+  });
+
+  // Thank-you banner after Stripe redirects back with ?thanks=1
+  const banner = document.getElementById("thanks-banner");
+  if (banner && new URLSearchParams(window.location.search).get("thanks") === "1") {
+    banner.hidden = false;
+    const close = banner.querySelector(".thanks-close");
+    if (close) close.addEventListener("click", () => { banner.hidden = true; });
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, "", window.location.pathname + window.location.hash);
+    }
+  }
+
   // Mobile nav toggle
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("primary-nav");
