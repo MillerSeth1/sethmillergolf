@@ -992,3 +992,23 @@ p, li { text-wrap: pretty; } .display, .hero-title, .contact-big { text-wrap: ba
 @media (max-width: 799px) {
   .how-grid, .how-grid-3 { grid-template-columns: 1fr; }
 }
+
+/* Mobile menu fix: the solid header's backdrop-filter traps the fixed menu inside the header after scrolling. */
+body.nav-open .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+/* Support thank-you gift callout */
+.gift-callout { margin: 0 0 36px; padding: 22px 0 0; border-top: 1px solid rgba(245,241,230,.14); }
+.gift-callout-kicker {
+  margin: 0 0 16px;
+  font-family: var(--display); font-weight: 700; font-size: 12px;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--khaki);
+}
+.gift-callout-kicker a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.gift-callout-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.gift-callout figure { margin: 0; min-width: 0; background: var(--g800); border: 1px solid rgba(212,137,74,.35); border-radius: 12px; overflow: hidden; }
+.gift-callout img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; background: #fff; }
+.gift-callout figcaption { padding: 10px 12px 12px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+@media (max-width: 700px) {
+  .gift-callout-grid { gap: 8px; }
+  .gift-callout figcaption { padding: 7px 8px 9px; font-size: 11.5px; }
+}
