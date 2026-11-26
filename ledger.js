@@ -22,7 +22,7 @@
     tbodyEl.innerHTML = rows.map(htmlFor).join("");
   }
 
-  fetch("ledger.json?v=4")
+  fetch("ledger.json?v=6")
     .then((r) => {
       if (!r.ok) throw new Error("Could not load ledger");
       return r.json();
@@ -60,6 +60,10 @@
       const outTotal = outgoing.reduce((s, r) => s + Number(r.amount || 0), 0);
       tfoot("money-in").textContent = money(inTotal);
       tfoot("money-out").textContent = money(outTotal);
+      const ti = document.getElementById("total-in");
+      const to = document.getElementById("total-out");
+      if (ti) ti.textContent = money(inTotal);
+      if (to) to.textContent = money(outTotal);
     })
     .catch((err) => {
       const note = document.getElementById("ledger-note");

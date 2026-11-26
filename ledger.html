@@ -3,26 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Public ledger — Seth Miller</title>
+  <title>Public ledger — Seth Miller Golf</title>
   <meta name="description" content="Public ledger of money in and money out for Seth Miller’s 2027 VGA season." />
+  <meta property="og:title" content="Seth Miller Golf — Road to VGA Nationals 2027" />
+  <meta property="og:description" content="Army veteran golfer. 2027 VGA Arizona Tour. The goal is Nationals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sethmillergolf.com/" />
+  <meta property="og:image" content="https://sethmillergolf.com/assets/img/hero-course-v6.jpg" />
+  <meta name="theme-color" content="#0E2418" />
   <link rel="icon" type="image/png" href="assets/brand/favicon-v3.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon-v3.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" data-header>
     <div class="wrap header-inner">
-      <a class="brand-link" href="index.html" aria-label="Seth Miller home">
-        <img class="brand-mono" src="assets/brand/sm-mark-khaki-v3.png" alt="" width="1053" height="428" />
+      <a class="brand-link" href="index.html" aria-label="Seth Miller Golf home">
+        <img class="brand-mono" src="assets/brand/sm-mark-cream-v6.png" alt="" width="1053" height="428" />
       </a>
-
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
-        <span></span><span></span>
-      </button>
-
       <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
         <a href="index.html#about">About</a>
         <a href="index.html#season">2027</a>
@@ -31,23 +32,34 @@
         <a href="ledger.html" aria-current="page">Ledger</a>
         <a href="index.html#sponsors">Sponsors</a>
         <a href="index.html#contact">Contact</a>
+        <a class="nav-donate" href="#" data-donate>Donate</a>
       </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
-    <section class="section section-ledger">
+    <section class="page-hero">
       <div class="wrap">
-        <div class="ledger-head">
-          <p class="kicker">Accountability</p>
-          <h2>Public ledger</h2>
-          <p id="ledger-updated" class="ledger-updated"></p>
-        </div>
+        <p class="eyebrow">Accountability</p>
+        <h1 class="display">Public <span>ledger.</span></h1>
+        <p id="ledger-updated" class="ledger-updated"></p>
+      </div>
+    </section>
 
+    <section class="section-ledger">
+      <div class="wrap">
         <p id="ledger-note" class="ledger-note"></p>
 
+        <div class="ledger-totals">
+          <div class="ledger-total"><span>Total in</span><strong id="total-in">—</strong></div>
+          <div class="ledger-total"><span>Total out</span><strong id="total-out">—</strong></div>
+        </div>
+
         <div class="ledger-block">
-          <h3>Money in</h3>
+          <h2>Money in</h2>
           <div class="ledger-table-wrap">
             <table class="ledger-table" id="money-in">
               <thead>
@@ -69,7 +81,7 @@
         </div>
 
         <div class="ledger-block">
-          <h3>Money out</h3>
+          <h2>Money out</h2>
           <div class="ledger-table-wrap">
             <table class="ledger-table" id="money-out">
               <thead>
@@ -90,23 +102,41 @@
           </div>
         </div>
 
-        <p class="fine-print" style="margin-left:auto;margin-right:auto;text-align:center;color:#3A3A32;">
-          Sources are listed as Anonymous unless a sponsor agrees to be named. Contributions are personal gifts, not tax-deductible charitable donations.
-        </p>
+        <p class="ledger-fine">Sources are listed as Anonymous unless a sponsor agrees to be named. Contributions are personal gifts, not tax-deductible charitable donations. Receipts are kept and available to any supporter on request.</p>
+        <div class="ledger-cta">
+          <a class="btn btn-primary btn-lg" href="#" data-donate>Back my season <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-dark btn-lg" href="index.html#money">Where your money goes</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <a class="footer-mark" href="index.html" aria-label="Back to home">
-        <img src="assets/brand/sm-mark-khaki-v3.png" alt="SM monogram" width="1053" height="428" />
-      </a>
-      <p>sethmillergolf.com</p>
+      <button type="button" class="enlarge-trigger footer-lockup" data-enlarge="assets/brand/stack-underline-olive-bg-v3.png" data-caption="Seth Miller — stacked script lockup" aria-label="Enlarge Seth Miller logo">
+        <img src="assets/brand/seth-miller-lockup-cream-v6.png" alt="Seth Miller" width="1607" height="789" />
+      </button>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html#about">About</a>
+        <a href="index.html#season">2027</a>
+        <a href="index.html#support">Support</a>
+        <a href="ledger.html">Ledger</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <p class="footer-meta">&copy; 2026 Seth Miller &middot; sethmillergolf.com &middot; Photography via Pexels</p>
     </div>
   </footer>
 
-  <script src="script.js?v=5"></script>
-  <script src="ledger.js?v=4"></script>
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <div class="lightbox-backdrop" data-close></div>
+    <div class="lightbox-dialog">
+      <button type="button" class="lightbox-close" data-close aria-label="Close enlarged image">&times;</button>
+      <img id="lightbox-img" alt="" />
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js?v=6"></script>
+  <script src="ledger.js?v=6"></script>
 </body>
 </html>

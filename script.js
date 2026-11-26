@@ -9,12 +9,27 @@
   const banner = document.getElementById("thanks-banner");
   if (banner && new URLSearchParams(window.location.search).get("thanks") === "1") {
     banner.hidden = false;
+    document.body.classList.add("has-banner");
+    const setBannerH = () => document.documentElement.style.setProperty("--banner-h", banner.offsetHeight + "px");
+    setBannerH();
+    window.addEventListener("resize", setBannerH);
     const close = banner.querySelector(".thanks-close");
-    if (close) close.addEventListener("click", () => { banner.hidden = true; });
+    if (close) close.addEventListener("click", () => {
+      banner.hidden = true;
+      document.body.classList.remove("has-banner");
+    });
     if (window.history && window.history.replaceState) {
       window.history.replaceState(null, "", window.location.pathname + window.location.hash);
     }
   }
+
+  // Header: solid after scrolling past the top
+  const header = document.querySelector("[data-header]");
+  const onScroll = () => {
+    if (header) header.classList.toggle("is-solid", window.scrollY > 40);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 
   // Mobile nav toggle
   const toggle = document.querySelector(".nav-toggle");
@@ -23,20 +38,91 @@
     toggle.addEventListener("click", () => {
       const open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("nav-open", open);
     });
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         nav.classList.remove("is-open");
         toggle.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("nav-open");
       });
     });
+  }
+
+  // Scroll reveals
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const items = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    items.forEach((el) => el.classList.add("is-in"));
+  } else {
+    document.documentElement.classList.add("js-reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    );
+    // Stagger siblings slightly
+    items.forEach((el) => {
+      const sibs = el.parentElement ? Array.from(el.parentElement.children).filter((c) => c.classList.contains("reveal")) : [];
+      const i = sibs.indexOf(el);
+      if (i > 0) el.style.transitionDelay = Math.min(i * 90, 450) + "ms";
+      io.observe(el);
+    });
+  }
+
+  // Countdown to VGA Nationals
+  const clock = document.querySelector("[data-countdown]");
+  if (clock) {
+    const target = new Date(clock.getAttribute("data-countdown")).getTime();
+    const pad = (n, w) => String(n).padStart(w, "0");
+    const set = (unit, val) => {
+      const el = clock.querySelector(`[data-unit="${unit}"]`);
+      if (el) el.textContent = val;
+    };
+    const tick = () => {
+      let ms = Math.max(0, target - Date.now());
+      const days = Math.floor(ms / 86400000); ms -= days * 86400000;
+      const hours = Math.floor(ms / 3600000); ms -= hours * 3600000;
+      const mins = Math.floor(ms / 60000); ms -= mins * 60000;
+      const secs = Math.floor(ms / 1000);
+      set("days", pad(days, 3));
+      set("hours", pad(hours, 2));
+      set("mins", pad(mins, 2));
+      set("secs", pad(secs, 2));
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  // Ledger snapshot on the home page
+  const snap = document.querySelector("[data-ledger-snap]");
+  if (snap) {
+    const money = (n) => Number(n).toLocaleString("en-US", { style: "currency", currency: "USD" });
+    fetch("ledger.json?v=6")
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => {
+        const sum = (rows) => (rows || []).reduce((s, r) => s + Number(r.amount || 0), 0);
+        snap.querySelector('[data-snap="in"]').textContent = money(sum(d.moneyIn));
+        snap.querySelector('[data-snap="out"]').textContent = money(sum(d.moneyOut));
+        if (d.lastUpdated) {
+          const [y, m, day] = d.lastUpdated.split("-").map(Number);
+          snap.querySelector('[data-snap="updated"]').textContent =
+            "Last updated " + new Date(y, m - 1, day).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+        }
+      })
+      .catch(() => {});
   }
 
   // Click-to-enlarge lightbox
   const lightbox = document.getElementById("lightbox");
   const lbImg = document.getElementById("lightbox-img");
   const lbCaption = document.getElementById("lightbox-caption");
-
   function closeLightbox() {
     if (!lightbox) return;
     lightbox.hidden = true;
@@ -44,29 +130,21 @@
     lbImg.alt = "";
     document.body.style.overflow = "";
   }
-
   document.querySelectorAll("[data-enlarge]").forEach((btn) => {
     btn.addEventListener("click", () => {
       if (!lightbox || !lbImg) return;
-      const src = btn.getAttribute("data-enlarge");
-      const caption = btn.getAttribute("data-caption") || "";
       const img = btn.querySelector("img");
-      lbImg.src = src;
-      lbImg.alt = img ? img.alt : caption;
-      if (lbCaption) lbCaption.textContent = caption;
+      lbImg.src = btn.getAttribute("data-enlarge");
+      lbImg.alt = img ? img.alt : "";
+      if (lbCaption) lbCaption.textContent = btn.getAttribute("data-caption") || "";
       lightbox.hidden = false;
       document.body.style.overflow = "hidden";
     });
   });
-
   if (lightbox) {
-    lightbox.querySelectorAll("[data-close]").forEach((el) => {
-      el.addEventListener("click", closeLightbox);
-    });
+    lightbox.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", closeLightbox));
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !lightbox.hidden) {
-        closeLightbox();
-      }
+      if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
     });
   }
 })();

@@ -3,35 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seth Miller — Army Veteran · 2027 VGA Arizona Tour</title>
-  <meta name="description" content="Seth Miller is an Army veteran and Staff Sergeant in the Arizona National Guard competing on the 2027 VGA Arizona Tour out of Sahuarita, Arizona." />
-  <meta property="og:title" content="Seth Miller — 2027 VGA Arizona Tour" />
-  <meta property="og:description" content="Army veteran. 2027 VGA Arizona Tour. Personal golf sponsorship from Sahuarita, Arizona." />
+  <title>Seth Miller Golf — Road to VGA Nationals 2027</title>
+  <meta name="description" content="Seth Miller is an Army veteran golfer from Sahuarita, Arizona, playing the 2027 VGA Arizona Tour with one goal: VGA Nationals." />
+  <meta property="og:title" content="Seth Miller Golf — Road to VGA Nationals 2027" />
+  <meta property="og:description" content="Army veteran golfer. 2027 VGA Arizona Tour. The goal is Nationals." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sethmillergolf.com/" />
-  <meta property="og:image" content="assets/brand/stack-underline-olive-bg-v3.png" />
+  <meta property="og:image" content="https://sethmillergolf.com/assets/img/hero-course-v6.jpg" />
+  <meta name="theme-color" content="#0E2418" />
   <link rel="icon" type="image/png" href="assets/brand/favicon-v3.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon-v3.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/img/hero-course-v6.jpg" media="(min-width: 760px)" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body id="top">
   <div id="thanks-banner" class="thanks-banner" hidden role="status">
     <p>Thank you for backing my 2027 season. It will be logged on the <a href="ledger.html">public ledger</a>.</p>
     <button type="button" class="thanks-close" aria-label="Dismiss">&times;</button>
   </div>
-  <header class="site-header">
+
+  <header class="site-header" data-header>
     <div class="wrap header-inner">
-      <a class="brand-link" href="index.html" aria-label="Seth Miller home">
-        <img class="brand-mono" src="assets/brand/sm-mark-khaki-v3.png" alt="" width="1053" height="428" />
+      <a class="brand-link" href="index.html" aria-label="Seth Miller Golf home">
+        <img class="brand-mono" src="assets/brand/sm-mark-cream-v6.png" alt="" width="1053" height="428" />
       </a>
-
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
-        <span></span><span></span>
-      </button>
-
       <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
         <a href="index.html#about">About</a>
         <a href="index.html#season">2027</a>
@@ -40,125 +38,214 @@
         <a href="ledger.html">Ledger</a>
         <a href="index.html#sponsors">Sponsors</a>
         <a href="index.html#contact">Contact</a>
+        <a class="nav-donate" href="#" data-donate>Donate</a>
       </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
+      <picture class="hero-media" aria-hidden="true">
+        <source media="(max-width: 759px)" srcset="assets/img/hero-course-mobile-v6.jpg" />
+        <img src="assets/img/hero-course-v6.jpg" alt="" width="2400" height="1600" fetchpriority="high" />
+      </picture>
+      <div class="hero-shade" aria-hidden="true"></div>
       <div class="wrap hero-inner">
-        <button type="button" class="enlarge-trigger hero-logo-btn" data-enlarge="assets/brand/stack-underline-olive-bg-v3.png" data-caption="Seth Miller — stacked script lockup" aria-label="Enlarge Seth Miller logo">
-          <img src="assets/brand/seth-miller-lockup-khaki-v3.png" alt="Seth Miller stacked cursive script logo with a flagstick" width="1607" height="789" />
-        </button>
-        <p class="hero-line">Army veteran. 2027 VGA Arizona Tour.</p>
-        <a class="btn btn-hero" href="https://donate.stripe.com/14A3co9eTf8X9H6f3i9k400" data-donate>Back my season</a>
+        <p class="eyebrow hero-eyebrow reveal"><span class="flag-chip" aria-hidden="true"></span>U.S. Army Veteran &nbsp;/&nbsp; Sahuarita, Arizona</p>
+        <h1 class="visually-hidden">Seth Miller Golf</h1>
+        <img class="hero-lockup reveal" src="assets/brand/seth-miller-lockup-cream-v6.png" alt="Seth Miller" width="1607" height="789" />
+        <p class="hero-title reveal">Road to <span>Nationals.</span></p>
+        <p class="hero-sub reveal">2027 VGA Arizona Tour. One season, one goal.</p>
+        <div class="hero-ctas reveal">
+          <a class="btn btn-primary btn-lg" href="#" data-donate>Back my season <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-outline btn-lg" href="#season">See the path</a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#countdown" aria-label="Scroll to the countdown"><span></span></a>
+    </section>
+
+    <!-- COUNTDOWN / STATS BAND -->
+    <section id="countdown" class="band-countdown" aria-label="Countdown to VGA Nationals">
+      <div class="wrap band-inner">
+        <div class="cd-label reveal">
+          <p class="eyebrow">Countdown to</p>
+          <p class="cd-event">VGA Nationals</p>
+          <p class="cd-meta">Chambers Bay &middot; Sep 19, 2027</p>
+        </div>
+        <div class="cd-clock reveal" data-countdown="2027-09-19T08:00:00-07:00" role="timer" aria-live="off">
+          <div class="cd-unit"><span class="cd-num" data-unit="days">000</span><span class="cd-cap">Days</span></div>
+          <div class="cd-unit"><span class="cd-num" data-unit="hours">00</span><span class="cd-cap">Hrs</span></div>
+          <div class="cd-unit"><span class="cd-num" data-unit="mins">00</span><span class="cd-cap">Min</span></div>
+          <div class="cd-unit"><span class="cd-num" data-unit="secs">00</span><span class="cd-cap">Sec</span></div>
+        </div>
+      </div>
+      <div class="wrap stat-row">
+        <div class="stat reveal"><span class="stat-num">12+</span><span class="stat-cap">Regular-season events</span></div>
+        <div class="stat reveal"><span class="stat-num">3</span><span class="stat-cap">Stages to Nationals</span></div>
+        <div class="stat reveal"><span class="stat-num">1</span><span class="stat-cap">Goal</span></div>
+        <div class="stat reveal"><span class="stat-num">100%</span><span class="stat-cap">Logged publicly</span></div>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="section section-about">
-      <div class="wrap narrow">
-        <p class="kicker">About</p>
-        <h2 class="visually-hidden">About Seth</h2>
-        <p class="bio">I'm an Army veteran from Sahuarita, Arizona. I served from 2002 to 2013, including a 2003–04 mobilization to North Carolina backfilling active-duty units during Operation Enduring Freedom (OEF), and deployments to Iraq (2006–07) and Kuwait (2011–12). In Iraq, I was with an aviation battalion running daily missions all over the country, from hauling troops and gear to flying VIPs and senior leaders into Baghdad. I came back in 2019 to finish my career for my family, including a year on the Southwest border mission in Nogales, Arizona, and I now serve as a Staff Sergeant in the Arizona National Guard. I'm also a certified aircraft mechanic, a husband of 8 years, and dad to an 8-year-old son, plus two dogs, Bowie (15) and Abby (5). Golf is how I unwind, and in 2027 I'm taking it to the VGA tournament level.</p>
+      <div class="wrap about-grid">
+        <div class="about-left">
+          <p class="eyebrow eyebrow-green reveal">About</p>
+          <h2 class="display reveal">Golf is how I unwind. <span>In 2027 I'm taking it to the tournament level.</span></h2>
+          <ul class="service-strip reveal" aria-label="Service highlights">
+            <li><span>Army</span> 2002–2013</li>
+            <li><span>Iraq</span> 2006–07</li>
+            <li><span>Kuwait</span> 2011–12</li>
+            <li><span>Now</span> SSG, Arizona National Guard</li>
+          </ul>
+        </div>
+        <div class="about-right reveal">
+          <p class="bio">I'm an Army veteran from Sahuarita, Arizona. I served from 2002 to 2013, including a 2003–04 mobilization to North Carolina backfilling active-duty units during Operation Enduring Freedom (OEF), and deployments to Iraq (2006–07) and Kuwait (2011–12). In Iraq, I was with an aviation battalion running daily missions all over the country, from hauling troops and gear to flying VIPs and senior leaders into Baghdad. I came back in 2019 to finish my career for my family, including a year on the Southwest border mission in Nogales, Arizona, and I now serve as a Staff Sergeant in the Arizona National Guard. I'm also a certified aircraft mechanic, a husband of 8 years, and dad to an 8-year-old son, plus two dogs, Bowie (15) and Abby (5). Golf is how I unwind, and in 2027 I'm taking it to the VGA tournament level.</p>
+        </div>
       </div>
     </section>
 
+    <!-- ROAD TO NATIONALS -->
     <section id="season" class="section section-season">
+      <div class="season-bg" aria-hidden="true"></div>
       <div class="wrap">
-        <p class="kicker">2027 Season</p>
-        <h2>The work ahead.</h2>
-        <p class="goal-lead">The goal is VGA Nationals at Chambers Bay.</p>
-        <div class="goal-path">
-          <article class="goal">
-            <p class="goal-num">State</p>
-            <h3>Championship</h3>
-          </article>
-          <span class="path-arrow" aria-hidden="true">→</span>
-          <article class="goal">
-            <p class="goal-num">West</p>
-            <h3>Regional</h3>
-          </article>
-          <span class="path-arrow" aria-hidden="true">→</span>
-          <article class="goal goal-featured">
-            <p class="goal-num">Nationals</p>
-            <h3>Chambers Bay</h3>
-          </article>
-        </div>
-        <p class="goal-plus">Plus the Armed Forces Cup. It starts with 12 or more regular-season events.</p>
+        <p class="eyebrow reveal">2027 Season</p>
+        <h2 class="display display-xl reveal">The goal is <span>VGA Nationals.</span></h2>
+        <ol class="path">
+          <li class="path-step reveal">
+            <span class="path-num">01</span>
+            <span class="path-stage">State</span>
+            <span class="path-name">Championship</span>
+          </li>
+          <li class="path-step reveal">
+            <span class="path-num">02</span>
+            <span class="path-stage">West</span>
+            <span class="path-name">Regional</span>
+          </li>
+          <li class="path-step path-final reveal">
+            <span class="path-num">03</span>
+            <span class="path-stage">Nationals</span>
+            <span class="path-name">Chambers Bay &middot; Sep 19, 2027</span>
+          </li>
+        </ol>
+        <p class="path-plus reveal"><strong>Plus the Armed Forces Cup.</strong> It starts with 12 or more regular-season events on the Arizona Tour.</p>
       </div>
     </section>
 
+    <!-- SUPPORT -->
     <section id="support" class="section section-support">
-      <div class="wrap">
-        <p class="kicker kicker-on-dark">Support</p>
-        <h2>Back my season.</h2>
-        <div class="ways">
-          <article class="way">
-            <h3>Chip in $100</h3>
-            <p>A straightforward hand toward entry fees and travel on the Arizona Tour.</p>
-          </article>
-          <article class="way">
-            <h3>Gear</h3>
-            <p>Clubs, balls, apparel, a bag, or help with training and fittings.</p>
-          </article>
-          <article class="way">
-            <h3>Sponsor an event</h3>
-            <p>Cover the entry fee for a specific 2027 tournament.</p>
-          </article>
+      <div class="support-photo" aria-hidden="true"></div>
+      <div class="wrap support-grid">
+        <div class="support-copy">
+          <p class="eyebrow reveal">Support</p>
+          <h2 class="display display-xl reveal">Back my <span>season.</span></h2>
+          <div class="ways">
+            <article class="way reveal">
+              <p class="way-num">$100</p>
+              <h3>Chip in</h3>
+              <p>A straight hand toward entry fees and travel on the Arizona Tour. Any amount helps.</p>
+            </article>
+            <article class="way reveal">
+              <p class="way-num">Gear</p>
+              <h3>Equip the bag</h3>
+              <p>Clubs, balls, apparel, a bag, or help with training and fittings.</p>
+            </article>
+            <article class="way reveal">
+              <p class="way-num">Event</p>
+              <h3>Sponsor a tournament</h3>
+              <p>Cover the entry fee for a specific 2027 event.</p>
+            </article>
+          </div>
+          <div class="support-actions reveal">
+            <a class="btn btn-primary btn-lg" href="#" data-donate>Donate now <span class="btn-arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-outline btn-lg" href="mailto:seth@sethmillergolf.com?subject=2027%20VGA%20Season%20Support">Email Seth</a>
+          </div>
+          <p class="fine-print reveal">Contributions are personal gifts to Seth Miller, not tax-deductible charitable donations. Seth is an individual, not a 501(c)(3), and no charitable receipt can be issued.</p>
         </div>
-        <div class="support-actions">
-          <a class="btn btn-hero" href="https://donate.stripe.com/14A3co9eTf8X9H6f3i9k400" data-donate>Donate</a>
-          <a class="btn btn-ghost" href="mailto:seth@sethmillergolf.com?subject=2027%20VGA%20Season%20Support">Email Seth</a>
-        </div>
-        <p class="fine-print">Contributions are personal gifts to Seth Miller, not tax-deductible charitable donations. Seth is an individual, not a 501(c)(3), and no charitable receipt can be issued.</p>
       </div>
     </section>
 
+    <!-- MONEY -->
     <section id="money" class="section section-money">
-      <div class="wrap narrow">
-        <p class="kicker kicker-on-dark">Accountability</p>
-        <h2>Where your money goes.</h2>
-        <p class="money-lead">Support goes to entry fees, travel, gear, and training.</p>
-        <ul class="money-points">
-          <li>This is a personal gift, not a charity, and it is not tax-deductible.</li>
-          <li>Every dollar is logged on a public ledger.</li>
-          <li>Results will be posted after every event, good or bad.</li>
-          <li>Receipts are kept and available to any supporter on request.</li>
-          <li>The plan is that leftover funds roll into the 2028 season.</li>
+      <div class="wrap">
+        <div class="money-head">
+          <div>
+            <p class="eyebrow eyebrow-green reveal">Accountability</p>
+            <h2 class="display reveal">Where your money goes.</h2>
+          </div>
+          <div class="ledger-snap reveal" data-ledger-snap>
+            <p class="snap-title">Public ledger</p>
+            <div class="snap-row"><span>Money in</span><strong data-snap="in">—</strong></div>
+            <div class="snap-row"><span>Money out</span><strong data-snap="out">—</strong></div>
+            <p class="snap-updated" data-snap="updated"></p>
+          </div>
+        </div>
+        <div class="buckets">
+          <div class="bucket reveal"><span class="bucket-num">01</span><span class="bucket-name">Entry fees</span></div>
+          <div class="bucket reveal"><span class="bucket-num">02</span><span class="bucket-name">Travel</span></div>
+          <div class="bucket reveal"><span class="bucket-num">03</span><span class="bucket-name">Gear</span></div>
+          <div class="bucket reveal"><span class="bucket-num">04</span><span class="bucket-name">Training</span></div>
+        </div>
+        <ul class="promises">
+          <li class="reveal">This is a personal gift, not a charity, and it is not tax-deductible.</li>
+          <li class="reveal">Every dollar is logged on a public ledger.</li>
+          <li class="reveal">Results will be posted after every event, good or bad.</li>
+          <li class="reveal">Receipts are kept and available to any supporter on request.</li>
+          <li class="reveal">The plan is that leftover funds roll into the 2028 season.</li>
         </ul>
-        <a class="btn btn-hero money-btn" href="ledger.html">See the public ledger</a>
-        <p class="fine-print money-note">Miller Avionics is covering startup costs until donations come in.</p>
+        <div class="money-foot reveal">
+          <a class="btn btn-dark btn-lg" href="ledger.html">See the public ledger <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <p class="money-note">Miller Avionics is covering startup costs until donations come in.</p>
+        </div>
       </div>
     </section>
 
+    <!-- SPONSORS -->
     <section id="sponsors" class="section section-sponsors">
       <div class="wrap">
-        <p class="kicker">Sponsors</p>
-        <h2>Your mark here.</h2>
+        <p class="eyebrow reveal">Sponsors</p>
+        <h2 class="display reveal">Your mark <span>here.</span></h2>
+        <p class="sponsor-lead reveal">Businesses that back the 2027 season get their mark here.</p>
         <div class="sponsor-wall">
-          <div class="sponsor-slot">Your logo here</div>
-          <div class="sponsor-slot">Your logo here</div>
-          <div class="sponsor-slot">Your logo here</div>
-          <div class="sponsor-slot">Your logo here</div>
+          <div class="sponsor-slot reveal">Your logo here</div>
+          <div class="sponsor-slot reveal">Your logo here</div>
+          <div class="sponsor-slot reveal">Your logo here</div>
+          <div class="sponsor-slot reveal">Your logo here</div>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="section section-contact">
-      <div class="wrap narrow contact-inner">
-        <p class="kicker kicker-on-dark">Contact</p>
-        <h2><a href="mailto:seth@sethmillergolf.com">seth@sethmillergolf.com</a></h2>
-        <p class="contact-place">Sahuarita, Arizona</p>
+      <div class="wrap contact-inner">
+        <p class="eyebrow reveal">Contact</p>
+        <h2 class="contact-big reveal"><a href="mailto:seth@sethmillergolf.com">seth@<wbr>sethmillergolf.com</a></h2>
+        <p class="contact-place reveal">Sahuarita, Arizona</p>
+        <div class="contact-ctas reveal">
+          <a class="btn btn-primary btn-lg" href="#" data-donate>Back my season <span class="btn-arrow" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <button type="button" class="enlarge-trigger footer-mark" data-enlarge="assets/brand/sm-cap-mark-olive-bg-v3.png" data-caption="Interlocking SM cap monogram" aria-label="Enlarge SM monogram">
-        <img src="assets/brand/sm-mark-khaki-v3.png" alt="SM monogram" width="1053" height="428" />
+      <button type="button" class="enlarge-trigger footer-lockup" data-enlarge="assets/brand/stack-underline-olive-bg-v3.png" data-caption="Seth Miller — stacked script lockup" aria-label="Enlarge Seth Miller logo">
+        <img src="assets/brand/seth-miller-lockup-cream-v6.png" alt="Seth Miller" width="1607" height="789" />
       </button>
-      <p>sethmillergolf.com</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html#about">About</a>
+        <a href="index.html#season">2027</a>
+        <a href="index.html#support">Support</a>
+        <a href="ledger.html">Ledger</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <p class="footer-meta">&copy; 2026 Seth Miller &middot; sethmillergolf.com &middot; Photography via Pexels</p>
     </div>
   </footer>
 
@@ -171,6 +258,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>
