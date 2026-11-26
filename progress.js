@@ -120,7 +120,7 @@
             <line x1="56" y1="185" x2="808" y2="185" stroke="rgba(246,237,224,0.16)"/>
             <polyline points="80,132 220,124 360,112 500,118 640,98 780,82" fill="none" stroke="rgba(212,137,74,0.22)" stroke-width="2.5" stroke-dasharray="6 6"/>
           </svg>
-          <p class="chart-empty-copy"><strong>Season starts in 2027.</strong> Score and differential trends will plot here automatically once the first round is posted.</p>
+          <p class="chart-empty-copy"><strong>Scores will plot here once they are posted.</strong> Gross score and handicap differential trends appear automatically after the first scored round.</p>
         </div>
       `;
       return;
@@ -242,7 +242,7 @@
     if (!entries.length) {
       feed.innerHTML = `
         <div class="log-empty-card">
-          <p class="log-empty-eyebrow">Season starts in 2027</p>
+          <p class="log-empty-eyebrow">Season prep · October 2026</p>
           <p class="log-empty-title">No sessions or rounds logged yet.</p>
           <p class="log-empty-copy">GOLFTEC lessons, range practice, casual rounds, and 2027 VGA Arizona Tour events will appear here as every step of the climb toward Chambers Bay is logged.</p>
         </div>
@@ -359,7 +359,7 @@
     });
   });
 
-  fetch("progress.json?v=8")
+  fetch("progress.json?v=9")
     .then((r) => {
       if (!r.ok) throw new Error("Could not load Season Log");
       return r.json();
@@ -369,7 +369,7 @@
       if (updated) {
         updated.textContent = data.lastUpdated
           ? "Last updated " + dateLabel(data.lastUpdated)
-          : "Season starts 2027 · Ready for day-one logging";
+          : "Season prep · Log starts October 2026";
       }
       const note = document.getElementById("progress-note");
       if (note && data.note) note.textContent = data.note;

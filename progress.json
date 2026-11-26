@@ -1,7 +1,208 @@
 {
-  "lastUpdated": null,
-  "seasonStarts": "2027",
+  "lastUpdated": "2026-11-25",
+  "seasonStarts": "2026-10",
   "goal": "VGA Nationals at Chambers Bay (Sep 19, 2027)",
-  "note": "Every GOLFTEC lesson, practice session, casual round, and 2027 VGA tournament round will be logged here as the season unfolds.",
-  "entries": []
+  "note": "Season prep is underway. Every GOLFTEC lesson, practice session, casual round, and event is logged here on the climb to VGA Nationals at Chambers Bay in 2027.",
+  "entries": [
+    {
+      "date": "2026-10-10",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "coach": "Brock Nehls",
+      "notes": "Game Evaluation."
+    },
+    {
+      "date": "2026-10-14",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "coach": "Brock Nehls",
+      "notes": "30-minute lesson."
+    },
+    {
+      "date": "2026-10-16",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-10-19",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-10-21",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "coach": "Brock Nehls",
+      "notes": "30-minute lesson."
+    },
+    {
+      "date": "2026-10-21",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-10-26",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-10-30",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "coach": "Brock Nehls",
+      "notes": "30-minute lesson."
+    },
+    {
+      "date": "2026-10-30",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-10-31",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-02",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-03",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-03",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "coach": "Brock Nehls",
+      "notes": "30-minute lesson."
+    },
+    {
+      "date": "2026-11-04",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-09",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-11",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "coach": "Brock Nehls",
+      "notes": "30-minute lesson."
+    },
+    {
+      "date": "2026-11-11",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-13",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-14",
+      "type": "tournament",
+      "course": "El Conquistador Golf Course",
+      "notes": "Lions Golf Classic, 4-man scramble, team -3. Pusch Ridge Christian Academy fundraiser."
+    },
+    {
+      "date": "2026-11-16",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-18",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-18",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "coach": "Brock Nehls",
+      "notes": "30-minute lesson."
+    },
+    {
+      "date": "2026-11-20",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-21",
+      "type": "round",
+      "course": "Tubac Golf Resort",
+      "notes": "Casual 18-hole round. Score to be posted."
+    },
+    {
+      "date": "2026-11-23",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-23",
+      "type": "round",
+      "course": "Haven Golf Club, Green Valley, AZ",
+      "notes": "Casual 18-hole round. Score to be posted."
+    },
+    {
+      "date": "2026-11-25",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "coach": "Brock Nehls",
+      "notes": "30-minute lesson."
+    },
+    {
+      "date": "2026-11-25",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    }
+  ]
 }
