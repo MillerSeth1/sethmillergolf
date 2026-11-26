@@ -22,7 +22,7 @@
     tbodyEl.innerHTML = rows.map(htmlFor).join("");
   }
 
-  fetch("ledger.json?v=6")
+  fetch("ledger.json?v=7")
     .then((r) => {
       if (!r.ok) throw new Error("Could not load ledger");
       return r.json();

@@ -104,7 +104,7 @@
   const snap = document.querySelector("[data-ledger-snap]");
   if (snap) {
     const money = (n) => Number(n).toLocaleString("en-US", { style: "currency", currency: "USD" });
-    fetch("ledger.json?v=6")
+    fetch("ledger.json?v=7")
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((d) => {
         const sum = (rows) => (rows || []).reduce((s, r) => s + Number(r.amount || 0), 0);
