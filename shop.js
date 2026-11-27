@@ -1,7 +1,7 @@
 // Shop — product data + option pickers. Buy opens the matching Stripe Payment Link (size tier picks the link).
 (() => {
   const IMG = "assets/img/shop/";
-  const C = { black: "#141414", navy: "#1f2a44", white: "#f4f4f2", stone: "#cbbd9f", "steel-grey": "#62676c", "cool-heather": "#c4c8cd",
+  const C = { black: "#141414", navy: "#1f2a44", "forest-green": "#004224", grey: "#5c5e5d", white: "#f4f4f2", stone: "#cbbd9f", "steel-grey": "#62676c", "cool-heather": "#c4c8cd",
     "sport-grey": "#a9abae", khaki: "#bdaa97", spruce: "#2f4a3e", "dark-chocolate": "#4a3428", "military-green": "#5b5f3f",
     sand: "#d6c4a3", natural: "#eee5d0", "black-white": "#282927", "white-black": "#f4f4f2", "light-blue-white": "#4d617b",
     "dark-grey": "#554e46", "dark-navy": "#171822", grey: "#717171", "multicam-black": "#131211", "multicam-green": "#585c30",
@@ -10,19 +10,19 @@
   const NAMES = { "black-white": "Black / White", "white-black": "White / Black", "light-blue-white": "Light Blue / White",
     "kelly-white": "Kelly / White", "black-charcoal": "Black / Charcoal", "charcoal-black": "Charcoal / Black",
     "heather-grey-black": "Heather Grey / Black", "heather-grey-white": "Heather Grey / White",
-    "dark-navy": "Dark Navy", "dark-grey": "Dark Grey", "royal-blue": "Royal Blue",
+    "forest-green": "Forest Green", "dark-navy": "Dark Navy", "dark-grey": "Dark Grey", "royal-blue": "Royal Blue",
     "multicam-black": "Multicam Black", "multicam-green": "Multicam Green" };
   const N = (k) => NAMES[k] || k.split("-").map((w) => w[0].toUpperCase() + w.slice(1)).join(" ");
   const DESIGNS = { "desert-flag": "Desert Flag", "monogram-flag": "SM Monogram" };
   const SZ = ["S", "M", "L", "XL", "2XL (+$2)", "3XL (+$4)"];
   // Stripe Payment Links (live). Key = product id, plus "-2xl"/"-3xl" for upsized tiers.
   const LINKS = {
-      "polo-m": "https://buy.stripe.com/dRmdR24YDbWL3iIf3i9k401",
-      "polo-m-2xl": "https://buy.stripe.com/00w3cobn13qf1aA5sI9k402",
-      "polo-m-3xl": "https://buy.stripe.com/dRm8wI1Mrd0P8D26wM9k403",
-      "polo-w": "https://buy.stripe.com/9B6aEQaiX5yn8D208o9k404",
-      "polo-w-2xl": "https://buy.stripe.com/aFa28k0InbWL1aA7AQ9k405",
+      "polo-m": "https://buy.stripe.com/4gMeV64YD9OD9H6aN29k40E",
+      "polo-m-2xl": "https://buy.stripe.com/bJe8wIcr52mb8D2f3i9k40F",
+      "polo-w": "https://buy.stripe.com/28E00c9eTe4T5qQbR69k40G",
+      "polo-w-2xl": "https://buy.stripe.com/fZu14g0In9ODdXm1cs9k40H",
       "structured": "https://buy.stripe.com/aFaeV62Qvf8Xf1qcVa9k40y",
+      "flag-cap": "https://buy.stripe.com/aFa5kw62H6Cr5qQf3i9k40I",
       "tee": "https://buy.stripe.com/fZuaEQ8aP7Gv1aAf3i9k407",
       "tee-2xl": "https://buy.stripe.com/00wfZa2Qv3qfg5u08o9k408",
       "tee-3xl": "https://buy.stripe.com/3cIcMY9eT3qfdXmaN29k409",
@@ -34,15 +34,18 @@
       "tag": "https://buy.stripe.com/7sY4gsbn1d0Pf1q7AQ9k40e"
   };
   const P = [
-    { id: "polo-m", group: "apparel", name: "Men's Polo", price: 45, meta: "Port Authority K500 pique · embroidered",
-      designs: ["desert-flag", "monogram-flag"], colors: ["black", "navy", "white", "stone", "steel-grey", "cool-heather"],
-      img: (d, c, s) => `polo-m-${d}-${c}${s === "front" ? "-chest" : ""}.jpg`, zoom: true, sizes: SZ },
-    { id: "polo-w", group: "apparel", name: "Women's Polo", price: 45, meta: "Gildan 64800L pique · embroidered",
-      designs: ["desert-flag", "monogram-flag"], colors: ["black", "navy", "white", "sport-grey"],
-      img: (d, c, s) => `polo-w-${d}-${c}${s === "front" ? "-chest" : ""}.jpg`, zoom: true, sizes: ["S", "M", "L", "XL", "2XL (+$2)"] },
+    { id: "polo-m", group: "apparel", name: "Men's Performance Polo", price: 75, meta: "Under Armour Tech Polo · 100% polyester, moisture-wicking · embroidered",
+      designs: ["desert-flag", "monogram-flag"], colors: ["navy", "black", "forest-green", "grey", "white"],
+      img: (d, c) => `polo-m-${d}-${c}.jpg`, sizes: ["S", "M", "L", "XL", "2XL (+$2)"] },
+    { id: "polo-w", group: "apparel", name: "Women's Performance Polo", price: 75, meta: "Under Armour Tech Polo · 100% polyester, moisture-wicking · embroidered",
+      designs: ["desert-flag", "monogram-flag"], colors: ["navy", "black", "forest-green", "grey", "white"],
+      img: (d, c) => `polo-w-${d}-${c}.jpg`, sizes: ["S", "M", "L", "XL", "2XL (+$2)"] },
     { id: "structured", group: "apparel", name: "Structured Cap", price: 38, tag: "New", meta: "Flexfit 6277 closed-back · wordmark",
       colors: ["dark-navy", "black", "olive", "khaki", "white", "dark-grey", "grey", "red", "royal-blue", "multicam-black", "multicam-green"],
       img: (d, c) => `structured-${c}.jpg`, sizes: ["S/M", "L/XL"], contain: true },
+    { id: "flag-cap", group: "apparel", name: "Desert Flag Cap", price: 38, tag: "New", meta: "Flexfit 6277 closed-back · Desert Flag front",
+      colors: ["dark-navy", "black", "olive", "khaki", "white", "dark-grey"],
+      img: (d, c) => `flag-cap-${c}.jpg`, sizes: ["S/M", "L/XL"], contain: true },
     { id: "rope", group: "apparel", name: "Rope Golf Cap", price: 38, tag: "New", meta: "Richardson 258 · ARIZONA front, name on the side",
       colors: ["black-white", "white-black", "kelly-white", "light-blue-white"],
       img: (d, c, s) => s === "front" ? `rope-${c}-side.jpg` : `rope-${c}.jpg`, sizes: ["One size"], contain: true, flip: true },
@@ -111,6 +114,19 @@
       el.querySelector(".p-media").classList.toggle("zoomed", !!p.zoom && st.s === "front");
       sync();
     };
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const box = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lightbox-img");
+      const cap = document.getElementById("lightbox-caption");
+      if (!box || !lbImg) return;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || "";
+      if (cap) cap.textContent = img.alt || "";
+      box.hidden = false;
+      document.body.style.overflow = "hidden";
+    });
     el.addEventListener("click", (e) => {
       if (e.target.closest(".btn-buy")) { if (buy.getAttribute("href") === "#") { e.preventDefault(); say("Checkout is not available yet — email Seth to order."); } return; }
       const b = e.target.closest("button"); if (!b) return;
