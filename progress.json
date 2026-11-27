@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-25",
+  "lastUpdated": "2026-11-26",
   "seasonStarts": "2026-10",
   "goal": "VGA Nationals at Chambers Bay (Sep 19, 2027)",
   "note": "Season prep is underway. Every GOLFTEC lesson, practice session, casual round, and event is logged here on the climb to VGA Nationals at Chambers Bay in 2027.",
@@ -18,6 +18,13 @@
       "notes": "30-minute lesson."
     },
     {
+      "date": "2026-10-14",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
       "date": "2026-10-16",
       "type": "practice",
       "course": "GOLFTEC Tucson",
@@ -25,7 +32,21 @@
       "notes": "30-minute practice session."
     },
     {
+      "date": "2026-10-17",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
       "date": "2026-10-19",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-10-20",
       "type": "practice",
       "course": "GOLFTEC Tucson",
       "hours": 0.5,
@@ -40,6 +61,13 @@
     },
     {
       "date": "2026-10-21",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-10-25",
       "type": "practice",
       "course": "GOLFTEC Tucson",
       "hours": 0.5,
@@ -54,17 +82,17 @@
     },
     {
       "date": "2026-10-30",
-      "type": "lesson",
-      "course": "GOLFTEC Tucson",
-      "hours": 0.5,
-      "notes": "30-minute lesson."
-    },
-    {
-      "date": "2026-10-30",
       "type": "practice",
       "course": "GOLFTEC Tucson",
       "hours": 0.5,
       "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-10-30",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute lesson."
     },
     {
       "date": "2026-10-31",
@@ -82,13 +110,20 @@
     },
     {
       "date": "2026-11-03",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute lesson."
+    },
+    {
+      "date": "2026-11-03",
       "type": "practice",
       "course": "GOLFTEC Tucson",
       "hours": 0.5,
       "notes": "30-minute practice session."
     },
     {
-      "date": "2026-11-03",
+      "date": "2026-11-04",
       "type": "lesson",
       "course": "GOLFTEC Tucson",
       "hours": 0.5,
@@ -110,17 +145,17 @@
     },
     {
       "date": "2026-11-11",
-      "type": "lesson",
-      "course": "GOLFTEC Tucson",
-      "hours": 0.5,
-      "notes": "30-minute lesson."
-    },
-    {
-      "date": "2026-11-11",
       "type": "practice",
       "course": "GOLFTEC Tucson",
       "hours": 0.5,
       "notes": "30-minute practice session."
+    },
+    {
+      "date": "2026-11-11",
+      "type": "lesson",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute lesson."
     },
     {
       "date": "2026-11-13",
@@ -169,6 +204,13 @@
       "course": "Tubac Golf Resort",
       "notes": "Casual 18-hole round.",
       "score": 91
+    },
+    {
+      "date": "2026-11-22",
+      "type": "practice",
+      "course": "GOLFTEC Tucson",
+      "hours": 0.5,
+      "notes": "30-minute practice session."
     },
     {
       "date": "2026-11-23",

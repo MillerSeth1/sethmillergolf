@@ -220,7 +220,7 @@
     `;
   }
 
-  fetch("progress.json?v=10")
+  fetch("progress.json?v=11")
     .then((r) => {
       if (!r.ok) throw new Error("Could not load Season Log");
       return r.json();
