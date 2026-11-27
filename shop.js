@@ -43,8 +43,9 @@
     { id: "structured", group: "apparel", name: "Structured Cap", price: 38, tag: "New", meta: "Flexfit 6277 closed-back · wordmark",
       colors: ["dark-navy", "black", "olive", "khaki", "white", "dark-grey", "grey", "red", "royal-blue", "multicam-black", "multicam-green"],
       img: (d, c) => `structured-${c}.jpg`, sizes: ["S/M", "L/XL"], contain: true },
-    { id: "rope", group: "apparel", name: "Rope Golf Cap", price: 38, tag: "New", meta: "Richardson 258 · Arizona badge",
-      colors: ["black-white", "white-black", "kelly-white", "light-blue-white"], img: (d, c) => `rope-${c}.jpg`, sizes: ["One size"], contain: true },
+    { id: "rope", group: "apparel", name: "Rope Golf Cap", price: 38, tag: "New", meta: "Richardson 258 · ARIZONA front, name on the side",
+      colors: ["black-white", "white-black", "kelly-white", "light-blue-white"],
+      img: (d, c, s) => s === "front" ? `rope-${c}-side.jpg` : `rope-${c}.jpg`, sizes: ["One size"], contain: true, flip: true },
     { id: "trucker", group: "apparel", name: "Trucker Cap", price: 40, tag: "New", meta: "Richardson 112 snapback · mesa + flag",
       colors: ["loden", "heather-grey-black", "black", "black-charcoal", "black-white", "charcoal-black", "heather-grey-white"],
       img: (d, c) => `trucker-${c}.jpg`, sizes: ["One size"], contain: true },
@@ -105,7 +106,8 @@
       el.querySelectorAll("[data-d]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.d === st.d));
       el.querySelectorAll("[data-c]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.c === st.c));
       const sl = el.querySelector("[data-sel]"); if (sl) sl.innerHTML = [st.c ? `<b>${N(st.c)}</b>` : "", st.d ? DESIGNS[st.d] : ""].filter(Boolean).join(" · ");
-      const fl = el.querySelector(".p-flip"); if (fl) fl.textContent = p.zoom ? (st.s === "back" ? "Close-up" : "Full view") : (st.s === "back" ? "Show front" : "Show back");
+      const fl = el.querySelector(".p-flip");
+      if (fl) fl.textContent = p.zoom ? (st.s === "back" ? "Close-up" : "Full view") : p.id === "rope" ? (st.s === "back" ? "Show side" : "Show front") : (st.s === "back" ? "Show front" : "Show back");
       el.querySelector(".p-media").classList.toggle("zoomed", !!p.zoom && st.s === "front");
       sync();
     };
