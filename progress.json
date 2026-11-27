@@ -25,13 +25,6 @@
       "notes": "30-minute practice session."
     },
     {
-      "date": "2026-10-16",
-      "type": "practice",
-      "course": "GOLFTEC Tucson",
-      "hours": 0.5,
-      "notes": "30-minute practice session."
-    },
-    {
       "date": "2026-10-17",
       "type": "practice",
       "course": "GOLFTEC Tucson",
@@ -74,13 +67,6 @@
       "notes": "30-minute practice session."
     },
     {
-      "date": "2026-10-26",
-      "type": "practice",
-      "course": "GOLFTEC Tucson",
-      "hours": 0.5,
-      "notes": "30-minute practice session."
-    },
-    {
       "date": "2026-10-30",
       "type": "practice",
       "course": "GOLFTEC Tucson",
@@ -103,20 +89,6 @@
     },
     {
       "date": "2026-11-02",
-      "type": "practice",
-      "course": "GOLFTEC Tucson",
-      "hours": 0.5,
-      "notes": "30-minute practice session."
-    },
-    {
-      "date": "2026-11-03",
-      "type": "lesson",
-      "course": "GOLFTEC Tucson",
-      "hours": 0.5,
-      "notes": "30-minute lesson."
-    },
-    {
-      "date": "2026-11-03",
       "type": "practice",
       "course": "GOLFTEC Tucson",
       "hours": 0.5,
@@ -207,13 +179,6 @@
     },
     {
       "date": "2026-11-22",
-      "type": "practice",
-      "course": "GOLFTEC Tucson",
-      "hours": 0.5,
-      "notes": "30-minute practice session."
-    },
-    {
-      "date": "2026-11-23",
       "type": "practice",
       "course": "GOLFTEC Tucson",
       "hours": 0.5,
